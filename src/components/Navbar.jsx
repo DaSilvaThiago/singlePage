@@ -1,7 +1,10 @@
 import { useState } from "react";
 
-import { close, logo, menu } from "../assets";
+import { logo } from "../assets";
 import { navLinks } from "../constants";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -9,8 +12,8 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
-
+      <img src={logo} alt="hoobank" className="w-[60px] h-[49px]" />
+      
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
@@ -26,8 +29,14 @@ const Navbar = () => {
       </ul>
 
       <div className="sm:hidden flex flex-1 justify-end items-center">
-        <img
+        {/* <img
           src={toggle ? close : menu}
+          alt="menu"
+          className=""
+          onClick={() => setToggle(!toggle)}
+        /> */}
+        <FontAwesomeIcon
+          icon={toggle ? faTimes : faBars}
           alt="menu"
           className="w-[28px] h-[28px] object-contain"
           onClick={() => setToggle(!toggle)}
